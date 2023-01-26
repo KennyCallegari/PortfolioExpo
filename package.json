@@ -99,6 +99,7 @@
     "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-native": "4.0.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
     "expo-detox-hook": "1.0.10",
     "expo-modules-autolinking": "0.10.1",
     "fbjs-scripts": "3.0.1",
@@ -169,16 +170,21 @@
     "root": true,
     "parser": "@typescript-eslint/parser",
     "extends": [
+      "plugin:@rnx-kit/recommended",
       "plugin:@typescript-eslint/recommended",
       "plugin:react/recommended",
       "plugin:react-native/all",
       "standard",
-      "prettier"
+      "prettier",
+      "plugin:@tanstack/eslint-plugin-query/recommended"
     ],
     "plugins": [
       "@typescript-eslint",
       "react",
-      "react-native"
+      "react-native",
+      "simple-import-sort",
+      "import",
+      "@tanstack/query"
     ],
     "parserOptions": {
       "ecmaFeatures": {
@@ -213,6 +219,16 @@
       "@typescript-eslint/explicit-module-boundary-types": 0,
       "@typescript-eslint/indent": 0,
       "@typescript-eslint/member-delimiter-style": 0,
+      "@typescript-eslint/no-empty-function": [
+        "error",
+        {
+          "allow": [
+            "arrowFunctions",
+            "functions",
+            "asyncFunctions"
+          ]
+        }
+      ],
       "@typescript-eslint/no-empty-interface": 0,
       "@typescript-eslint/no-explicit-any": 0,
       "@typescript-eslint/no-object-literal-type-assertion": 0,
@@ -225,7 +241,11 @@
         }
       ],
       "comma-dangle": 0,
+      "import/first": "error",
+      "import/newline-after-import": "error",
+      "import/no-duplicates": "error",
       "multiline-ternary": 0,
+      "no-empty-function": 0,
       "no-undef": 0,
       "no-unused-vars": 0,
       "no-use-before-define": 0,
@@ -234,7 +254,11 @@
       "react-native/no-raw-text": 0,
       "react/no-unescaped-entities": 0,
       "react/prop-types": 0,
-      "space-before-function-paren": 0
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "space-before-function-paren": 0,
+      "@tanstack/query/exhaustive-deps": "error",
+      "@tanstack/query/prefer-query-object-syntax": "error"
     }
   }
 }

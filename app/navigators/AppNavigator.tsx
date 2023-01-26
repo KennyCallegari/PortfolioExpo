@@ -44,12 +44,6 @@ export type AppStackParamList = {
   // 🔥 Your screens go here
 }
 
-/**
- * This is a list of all the route names that will exit the app if the back button
- * is pressed while in that screen. Only affects Android.
- */
-const exitRoutes = Config.exitRoutes
-
 export type AppStackScreenProps<T extends keyof AppStackParamList> = StackScreenProps<
   AppStackParamList,
   T
@@ -94,7 +88,7 @@ interface NavigationProps extends Partial<React.ComponentProps<typeof Navigation
 export const AppNavigator = observer(function AppNavigator(props: NavigationProps) {
   const colorScheme = useColorScheme()
 
-  useBackButtonHandler((routeName) => exitRoutes.includes(routeName))
+  useBackButtonHandler()
 
   return (
     <NavigationContainer

@@ -41,33 +41,15 @@ export function getActiveRouteName(state: NavigationState | PartialState<Navigat
  * Hook that handles Android back button presses and forwards those on to
  * the navigation or allows exiting the app.
  */
-export function useBackButtonHandler(canExit: (routeName: string) => boolean) {
+export function useBackButtonHandler() {
   // ignore if iOS ... no back button!
   if (Platform.OS === "ios") return
-
-  // The reason we're using a ref here is because we need to be able
-  // to update the canExit function without re-setting up all the listeners
-  const canExitRef = useRef(canExit)
-
-  useEffect(() => {
-    canExitRef.current = canExit
-  }, [canExit])
 
   useEffect(() => {
     // We'll fire this when the back button is pressed on Android.
     const onBackPress = () => {
       if (!navigationRef.isReady()) {
         return false
-      }
-
-      // grab the current route
-      const routeName = getActiveRouteName(navigationRef.getRootState())
-
-      // are we allowed to exit?
-      if (canExitRef.current(routeName)) {
-        // exit and let the system know we've handled the event
-        BackHandler.exitApp()
-        return true
       }
 
       // we can't exit, so let's turn this into a back action
