@@ -7,9 +7,9 @@ import React from "react"
 import { AppRegistry } from "react-native"
 import RNBootSplash from "react-native-bootsplash"
 
-function IgniteApp() {
+function PortfolioExpo() {
   return <App hideSplashScreen={RNBootSplash.hide} />
 }
 
-AppRegistry.registerComponent("PortfolioExpo", () => IgniteApp)
+AppRegistry.registerComponent("PortfolioExpo", () => PortfolioExpo)
 export default App

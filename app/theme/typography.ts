@@ -3,29 +3,30 @@
 
 import { Platform } from "react-native"
 import {
-  SpaceGrotesk_300Light as spaceGroteskLight,
-  SpaceGrotesk_400Regular as spaceGroteskRegular,
-  SpaceGrotesk_500Medium as spaceGroteskMedium,
-  SpaceGrotesk_600SemiBold as spaceGroteskSemiBold,
-  SpaceGrotesk_700Bold as spaceGroteskBold,
-} from "@expo-google-fonts/space-grotesk"
+  OpenSans_400Regular as openSansRegular,
+  OpenSans_300Light as openSansLight,
+  OpenSans_500Medium as openSansMedium,
+  OpenSans_600SemiBold as openSansSemiBold,
+  OpenSans_700Bold as openSansBold,
+} from "@expo-google-fonts/open-sans"
 
 export const customFontsToLoad = {
-  spaceGroteskLight,
-  spaceGroteskRegular,
-  spaceGroteskMedium,
-  spaceGroteskSemiBold,
-  spaceGroteskBold,
+  // MY FONTS
+  openSansLight,
+  openSansRegular,
+  openSansMedium,
+  openSansSemiBold,
+  openSansBold,
 }
 
 const fonts = {
-  spaceGrotesk: {
+  openSans: {
     // Cross-platform Google font.
-    light: "spaceGroteskLight",
-    normal: "spaceGroteskRegular",
-    medium: "spaceGroteskMedium",
-    semiBold: "spaceGroteskSemiBold",
-    bold: "spaceGroteskBold",
+    light: "openSansLight",
+    normal: "openSansRegular",
+    medium: "openSansMedium",
+    semiBold: "openSansSemiBold",
+    bold: "openSansBold",
   },
   helveticaNeue: {
     // iOS only font.
@@ -59,7 +60,7 @@ export const typography = {
   /**
    * The primary font. Used in most places.
    */
-  primary: fonts.spaceGrotesk,
+  primary: fonts.openSans,
   /**
    * An alternate font used for perhaps titles and stuff.
    */
