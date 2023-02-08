@@ -35,6 +35,15 @@ const palette = {
 
   overlay20: "rgba(25, 16, 21, 0.2)",
   overlay50: "rgba(25, 16, 21, 0.5)",
+
+  // MY PALETTE
+
+  eggshell400: "ECE7D2",
+
+  green200: "3C5A4D",
+  green300: "32443A",
+  green400: "2A3C39",
+  green500: "2B3335",
 } as const
 
 export const colors = {

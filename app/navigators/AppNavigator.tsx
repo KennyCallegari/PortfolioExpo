@@ -22,6 +22,7 @@ import {
   WelcomeScreen,
 } from "../screens"
 import { DemoNavigator, DemoTabParamList } from "./DemoNavigator" // @demo remove-current-line
+import { MainTabNavigator, MainTabParamList } from "./MainTabNavigator"
 import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
 
 /**
@@ -38,10 +39,7 @@ import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
  *   https://reactnavigation.org/docs/typescript/#organizing-types
  */
 export type AppStackParamList = {
-  Welcome: undefined
-  Login: undefined // @demo remove-current-line
-  Demo: NavigatorScreenParams<DemoTabParamList> // @demo remove-current-line
-  // 🔥 Your screens go here
+  Main: NavigatorScreenParams<MainTabParamList>
 }
 
 export type AppStackScreenProps<T extends keyof AppStackParamList> = StackScreenProps<
@@ -62,23 +60,23 @@ const AppStack = observer(function AppStack() {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName={isAuthenticated ? "Welcome" : "Login"} // @demo remove-current-line
+      initialRouteName={"Main"} // @demo remove-current-line
     >
       {/* @demo remove-block-start */}
-      {isAuthenticated ? (
+      {/*
+      isAuthenticated ? (
         <>
-          {/* @demo remove-block-end */}
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
-          {/* @demo remove-block-start */}
           <Stack.Screen name="Demo" component={DemoNavigator} />
         </>
       ) : (
         <>
           <Stack.Screen name="Login" component={LoginScreen} />
         </>
-      )}
+      )
+      */}
       {/* @demo remove-block-end */}
-      {/** 🔥 Your screens go here */}
+      <Stack.Screen name="Main" component={MainTabNavigator} />
     </Stack.Navigator>
   )
 })
